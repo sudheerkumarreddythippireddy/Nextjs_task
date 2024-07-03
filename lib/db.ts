@@ -51,3 +51,6 @@ export async function getUsers(
 export async function deleteUserById(id: number) {
   await db.delete(users).where(eq(users.id, id));
 }
+export async function addUser(data: { name: string; username: string; email: string }) {
+  await db.insert(users).values(data);
+}
